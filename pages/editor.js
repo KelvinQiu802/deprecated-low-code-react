@@ -7,6 +7,34 @@ import PropertyList from '../components/Editor/PropertyList';
 import styles from '../styles/Editor.module.css';
 
 function Editor() {
+  const [data, setData] = React.useState([
+    {
+      tag: 'Paper',
+      props: {
+        elevation: 2,
+        square: false,
+        style: { padding: '100px' },
+        children: {
+          tag: 'Button',
+          props: {
+            text: 'Hello World',
+            color: 'warning',
+            variant: 'contained',
+            size: 'large',
+          },
+        },
+      },
+    },
+    {
+      tag: 'Button',
+      props: {
+        color: 'secondary',
+        text: 'Lydia',
+        variant: 'outlined',
+      },
+    },
+  ]);
+
   return (
     <>
       <Head>
@@ -16,7 +44,7 @@ function Editor() {
         <ControlBar />
         <div className={styles.bottom}>
           <ComponentList />
-          <Canvas />
+          <Canvas data={data} />
           <PropertyList />
         </div>
       </div>
