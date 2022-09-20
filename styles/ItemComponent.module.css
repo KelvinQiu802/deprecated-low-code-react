@@ -1,0 +1,8 @@
+.wrapper {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.wrapper:hover {
+  border: 1px solid blue;
+}
