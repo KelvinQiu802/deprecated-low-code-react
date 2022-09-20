@@ -8,7 +8,7 @@ function Canvas({ data }) {
     <div className={styles.canvas}>
       <div className={styles.container}>
         {data.map((item) => (
-          <ItemComponent key={nanoid()} {...item} />
+          <ItemComponent key={nanoid()} data={item} />
         ))}
       </div>
     </div>
