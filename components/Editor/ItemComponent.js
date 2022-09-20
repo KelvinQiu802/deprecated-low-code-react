@@ -6,9 +6,11 @@ function ItemComponent({ data }) {
   const Item = allComponents[data.tag];
   if (typeof data.props.children == 'object') {
     return (
-      <Item {...data.props}>
-        <ItemComponent data={data.props.children} />
-      </Item>
+      <div className={styles.wrapper}>
+        <Item {...data.props}>
+          <ItemComponent data={data.props.children} />
+        </Item>
+      </div>
     );
   }
   return (
