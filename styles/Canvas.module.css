@@ -3,4 +3,11 @@
   flex: 1;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
+  background-color: #eee;
+  padding: 10px;
+}
+
+.container {
+  background-color: #fff;
+  height: 100%;
 }

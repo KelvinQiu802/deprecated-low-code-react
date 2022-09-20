@@ -6,9 +6,11 @@ import { nanoid } from 'nanoid';
 function Canvas({ data }) {
   return (
     <div className={styles.canvas}>
-      {data.map((item) => (
-        <ItemComponent key={nanoid()} {...item} />
-      ))}
+      <div className={styles.container}>
+        {data.map((item) => (
+          <ItemComponent key={nanoid()} {...item} />
+        ))}
+      </div>
     </div>
   );
 }
