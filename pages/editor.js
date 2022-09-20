@@ -4,6 +4,7 @@ import ControlBar from '../components/Editor/ControlBar';
 import Canvas from '../components/Editor/Canvas';
 import ComponentList from '../components/Editor/ComponentList';
 import PropertyList from '../components/Editor/PropertyList';
+import styles from '../styles/Editor.module.css';
 
 function Editor() {
   return (
@@ -11,9 +12,9 @@ function Editor() {
       <Head>
         <title>Low Code Editor</title>
       </Head>
-      <div>
+      <div className={styles.editor}>
         <ControlBar />
-        <div>
+        <div className={styles.bottom}>
           <ComponentList />
           <Canvas />
           <PropertyList />
