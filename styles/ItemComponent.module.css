@@ -3,6 +3,6 @@
   display: inline-block;
 }
 
-.wrapper:hover {
+.hover {
   border: 1px solid blue;
 }
