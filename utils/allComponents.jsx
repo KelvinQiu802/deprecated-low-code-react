@@ -13,6 +13,7 @@ const stackStyle = {
   width: '100%',
   flexDirection: 'row',
   padding: '5px',
+  justifyContent: 'space-evenly',
 };
 
 export default allComponents;

@@ -1,6 +1,7 @@
 import React from 'react';
 import allComponents from '../../utils/allComponents';
 import styles from '../../styles/ItemComponent.module.css';
+import basicComponents from '../../utils/basicComponents';
 
 function ItemComponent({
   data,
@@ -21,7 +22,7 @@ function ItemComponent({
     if (e.target == e.currentTarget) {
       setCurrentSelect(data.id);
     }
-    if (data.tag == 'Box') {
+    if (basicComponents.find((itemName) => itemName === data.tag)) {
       setShowBorder([]);
     }
     setShowBorder((prev) => [...prev, data.id]);
