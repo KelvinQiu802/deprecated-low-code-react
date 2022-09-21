@@ -67,6 +67,7 @@ function Editor() {
     },
   ]);
   const [currentSelect, setCurrentSelect] = React.useState(null);
+  const [showBorder, setShowBorder] = React.useState([]);
 
   return (
     <>
@@ -81,6 +82,8 @@ function Editor() {
             data={data}
             currentSelect={currentSelect}
             setCurrentSelect={setCurrentSelect}
+            showBorder={showBorder}
+            setShowBorder={setShowBorder}
           />
           <PropertyList />
         </div>

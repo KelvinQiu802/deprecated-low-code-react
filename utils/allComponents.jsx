@@ -12,6 +12,7 @@ const stackStyle = {
   height: '50px',
   width: '100%',
   flexDirection: 'row',
+  padding: '5px',
 };
 
 export default allComponents;

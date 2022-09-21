@@ -2,15 +2,29 @@ import React from 'react';
 import allComponents from '../../utils/allComponents';
 import styles from '../../styles/ItemComponent.module.css';
 
-function ItemComponent({ data, currentSelect, setCurrentSelect }) {
-  const isSelect = data.id == currentSelect;
+function ItemComponent({
+  data,
+  currentSelect,
+  setCurrentSelect,
+  showBorder,
+  setShowBorder,
+}) {
+  const isSelect = showBorder.find((itemId) => itemId == data.id);
 
   const Item = allComponents[data.tag];
   const cl = `${styles.wrapper} ${isSelect ? styles.hover : null}`;
 
   const handleClick = (e) => {
-    e.stopPropagation();
-    setCurrentSelect(data.id);
+    if (data.tag == 'Stack') {
+      e.stopPropagation();
+    }
+    if (e.target == e.currentTarget) {
+      setCurrentSelect(data.id);
+    }
+    if (data.tag == 'Box') {
+      setShowBorder([]);
+    }
+    setShowBorder((prev) => [...prev, data.id]);
   };
 
   // nested component
@@ -22,6 +36,8 @@ function ItemComponent({ data, currentSelect, setCurrentSelect }) {
             data={child}
             currentSelect={currentSelect}
             setCurrentSelect={setCurrentSelect}
+            showBorder={showBorder}
+            setShowBorder={setShowBorder}
             key={child.id}
           />
         ))}
