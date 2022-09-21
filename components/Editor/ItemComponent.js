@@ -13,15 +13,27 @@ function ItemComponent({ data, currentSelect, setCurrentSelect }) {
     setCurrentSelect(data.id);
   };
 
-  if (typeof data.props.children == 'object') {
+  // nested component
+  if (data.props.children.length) {
     return (
-      <Item {...data.props} className={cl} onClick={(e) => handleClick(e)}>
-        <ItemComponent
-          data={data.props.children}
-          currentSelect={currentSelect}
-          setCurrentSelect={setCurrentSelect}
-        />
-      </Item>
+      <>
+        {data.props.children.map((child) => {
+          return (
+            <Item
+              {...data.props}
+              className={cl}
+              onClick={(e) => handleClick(e)}
+              key={child.id}
+            >
+              <ItemComponent
+                data={child}
+                currentSelect={currentSelect}
+                setCurrentSelect={setCurrentSelect}
+              />
+            </Item>
+          );
+        })}
+      </>
     );
   }
 

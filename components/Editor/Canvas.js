@@ -9,7 +9,7 @@ function Canvas({ data, currentSelect, setCurrentSelect }) {
       <div className={styles.container}>
         {data.map((item) => (
           <ItemComponent
-            key={nanoid()}
+            key={item.id}
             data={item}
             currentSelect={currentSelect}
             setCurrentSelect={setCurrentSelect}

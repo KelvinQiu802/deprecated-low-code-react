@@ -14,16 +14,19 @@ function Editor() {
       id: nanoid(),
       props: {
         style: { width: '100%', height: '100%' },
-        children: {
-          tag: 'Button',
-          id: nanoid(),
-          props: {
-            text: 'Hello World',
-            color: 'warning',
-            variant: 'contained',
-            size: 'large',
+        children: [
+          {
+            tag: 'Button',
+            id: nanoid(),
+            props: {
+              text: 'Hello World',
+              color: 'warning',
+              variant: 'contained',
+              size: 'large',
+              children: [],
+            },
           },
-        },
+        ],
       },
     },
   ]);
