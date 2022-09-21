@@ -9,6 +9,15 @@ const boxStyle = {
   alignItems: 'center',
 };
 
+const stackStyle = {
+  display: 'flex',
+  width: '100%',
+  height: '100%',
+  flexDirection: 'row',
+  padding: '5px',
+  justifyContent: 'space-evenly',
+};
+
 export default [
   {
     tag: 'RootBox',
@@ -20,6 +29,10 @@ export default [
           tag: 'Stack',
           id: nanoid(),
           props: {
+            style: {
+              ...stackStyle,
+              height: '100px',
+            },
             children: [
               {
                 tag: 'Box',
@@ -40,7 +53,39 @@ export default [
                     backgroundColor: 'skyblue',
                     ...boxStyle,
                   },
-                  children: [],
+                  children: [
+                    {
+                      tag: 'Stack',
+                      id: nanoid(),
+                      props: {
+                        style: { ...stackStyle },
+                        children: [
+                          {
+                            tag: 'Box',
+                            id: nanoid(),
+                            props: {
+                              style: {
+                                ...boxStyle,
+                                backgroundColor: 'green',
+                              },
+                              children: [],
+                            },
+                          },
+                          {
+                            tag: 'Box',
+                            id: nanoid(),
+                            props: {
+                              style: {
+                                ...boxStyle,
+                                backgroundColor: 'orange',
+                              },
+                              children: [],
+                            },
+                          },
+                        ],
+                      },
+                    },
+                  ],
                 },
               },
               {
