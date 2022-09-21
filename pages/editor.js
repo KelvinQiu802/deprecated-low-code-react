@@ -26,6 +26,17 @@ function Editor() {
               children: [],
             },
           },
+          {
+            tag: 'Button',
+            id: nanoid(),
+            props: {
+              text: 'Hello Lydia',
+              color: 'secondary',
+              variant: 'outlined',
+              size: 'large',
+              children: [],
+            },
+          },
         ],
       },
     },

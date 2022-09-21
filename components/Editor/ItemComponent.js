@@ -16,24 +16,16 @@ function ItemComponent({ data, currentSelect, setCurrentSelect }) {
   // nested component
   if (data.props.children.length) {
     return (
-      <>
-        {data.props.children.map((child) => {
-          return (
-            <Item
-              {...data.props}
-              className={cl}
-              onClick={(e) => handleClick(e)}
-              key={child.id}
-            >
-              <ItemComponent
-                data={child}
-                currentSelect={currentSelect}
-                setCurrentSelect={setCurrentSelect}
-              />
-            </Item>
-          );
-        })}
-      </>
+      <Item {...data.props} className={cl} onClick={(e) => handleClick(e)}>
+        {data.props.children.map((child) => (
+          <ItemComponent
+            data={child}
+            currentSelect={currentSelect}
+            setCurrentSelect={setCurrentSelect}
+            key={child.id}
+          />
+        ))}
+      </Item>
     );
   }
 
