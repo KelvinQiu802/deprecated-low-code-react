@@ -13,28 +13,53 @@ function Editor() {
       tag: 'Box',
       id: nanoid(),
       props: {
-        style: { width: '100%', height: '100%' },
+        style: { width: '100%', height: '100%', padding: '10px' },
         children: [
           {
-            tag: 'Button',
+            tag: 'Stack',
             id: nanoid(),
             props: {
-              text: 'Hello World',
-              color: 'warning',
-              variant: 'contained',
-              size: 'large',
-              children: [],
-            },
-          },
-          {
-            tag: 'Button',
-            id: nanoid(),
-            props: {
-              text: 'Hello Lydia',
-              color: 'secondary',
-              variant: 'outlined',
-              size: 'large',
-              children: [],
+              children: [
+                {
+                  tag: 'Box',
+                  id: nanoid(),
+                  props: {
+                    style: {
+                      backgroundColor: 'orange',
+                      width: '100px',
+                      height: '100%',
+                      flex: '1',
+                    },
+                    children: [],
+                  },
+                },
+                {
+                  tag: 'Box',
+                  id: nanoid(),
+                  props: {
+                    style: {
+                      backgroundColor: 'skyblue',
+                      width: '100px',
+                      height: '100%',
+                      flex: '1',
+                    },
+                    children: [],
+                  },
+                },
+                {
+                  tag: 'Box',
+                  id: nanoid(),
+                  props: {
+                    style: {
+                      backgroundColor: 'pink',
+                      width: '100px',
+                      height: '100%',
+                      flex: '1',
+                    },
+                    children: [],
+                  },
+                },
+              ],
             },
           },
         ],
