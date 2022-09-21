@@ -15,22 +15,18 @@ function ItemComponent({ data, currentSelect, setCurrentSelect }) {
 
   if (typeof data.props.children == 'object') {
     return (
-      <div className={cl} onClick={(e) => handleClick(e)}>
-        <Item {...data.props}>
-          <ItemComponent
-            data={data.props.children}
-            currentSelect={currentSelect}
-            setCurrentSelect={setCurrentSelect}
-          />
-        </Item>
-      </div>
+      <Item {...data.props} className={cl} onClick={(e) => handleClick(e)}>
+        <ItemComponent
+          data={data.props.children}
+          currentSelect={currentSelect}
+          setCurrentSelect={setCurrentSelect}
+        />
+      </Item>
     );
   }
 
   return (
-    <div className={cl} onClick={(e) => handleClick(e)}>
-      <Item {...data.props} />
-    </div>
+    <Item {...data.props} className={cl} onClick={(e) => handleClick(e)} />
   );
 }
 

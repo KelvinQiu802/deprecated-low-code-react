@@ -10,12 +10,10 @@ import { nanoid } from 'nanoid';
 function Editor() {
   const [data, setData] = React.useState([
     {
-      tag: 'Paper',
+      tag: 'Box',
       id: nanoid(),
       props: {
-        elevation: 2,
-        square: false,
-        style: { padding: '100px' },
+        style: { width: '100%', height: '100%' },
         children: {
           tag: 'Button',
           id: nanoid(),
@@ -26,15 +24,6 @@ function Editor() {
             size: 'large',
           },
         },
-      },
-    },
-    {
-      tag: 'Button',
-      id: nanoid(),
-      props: {
-        color: 'secondary',
-        text: 'Lydia',
-        variant: 'outlined',
       },
     },
   ]);
