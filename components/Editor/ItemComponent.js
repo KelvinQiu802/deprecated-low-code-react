@@ -21,8 +21,6 @@ function ItemComponent({
     }
     if (e.target == e.currentTarget) {
       setCurrentSelect(data.id);
-    }
-    if (basicComponents.find((itemName) => itemName === data.tag)) {
       setShowBorder([]);
     }
     setShowBorder((prev) => [...prev, data.id]);

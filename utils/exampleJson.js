@@ -1,8 +1,17 @@
 import { nanoid } from 'nanoid';
 
+const boxStyle = {
+  height: '100%',
+  flex: '1',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-evenly',
+  alignItems: 'center',
+};
+
 export default [
   {
-    tag: 'Box',
+    tag: 'RootBox',
     id: nanoid(),
     props: {
       style: { width: '100%', height: '100%', padding: '10px' },
@@ -18,9 +27,7 @@ export default [
                 props: {
                   style: {
                     backgroundColor: 'orange',
-                    width: '100px',
-                    height: '100%',
-                    flex: '1',
+                    ...boxStyle,
                   },
                   children: [],
                 },
@@ -31,9 +38,7 @@ export default [
                 props: {
                   style: {
                     backgroundColor: 'skyblue',
-                    width: '100px',
-                    height: '100%',
-                    flex: '1',
+                    ...boxStyle,
                   },
                   children: [],
                 },
@@ -44,40 +49,9 @@ export default [
                 props: {
                   style: {
                     backgroundColor: 'pink',
-                    width: '100px',
-                    height: '100%',
-                    flex: '1',
+                    ...boxStyle,
                   },
-                  children: [
-                    {
-                      tag: 'Stack',
-                      id: nanoid(),
-                      props: {
-                        children: [
-                          {
-                            tag: 'Button',
-                            id: nanoid(),
-                            props: {
-                              text: 'Hi',
-                              color: 'primary',
-                              variant: 'contained',
-                              children: [],
-                            },
-                          },
-                          {
-                            tag: 'Button',
-                            id: nanoid(),
-                            props: {
-                              text: 'Hello',
-                              color: 'warning',
-                              variant: 'outlined',
-                              children: [],
-                            },
-                          },
-                        ],
-                      },
-                    },
-                  ],
+                  children: [],
                 },
               },
             ],
