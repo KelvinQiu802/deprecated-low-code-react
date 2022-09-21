@@ -28,7 +28,7 @@ function Editor() {
             showBorder={showBorder}
             setShowBorder={setShowBorder}
           />
-          <PropertyList />
+          <PropertyList currentSelect={currentSelect} />
         </div>
       </div>
     </>

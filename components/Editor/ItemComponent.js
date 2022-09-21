@@ -20,7 +20,7 @@ function ItemComponent({
       e.stopPropagation();
     }
     if (e.target == e.currentTarget) {
-      setCurrentSelect(data.id);
+      setCurrentSelect(data);
       setShowBorder([]);
     }
     setShowBorder((prev) => [...prev, data.id]);
