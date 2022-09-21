@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from '../../styles/Canvas.module.css';
 import ItemComponent from './ItemComponent';
-import { nanoid } from 'nanoid';
 
 function Canvas({ data, currentSelect, setCurrentSelect }) {
   return (
