@@ -3,12 +3,17 @@ import styles from '../../styles/Canvas.module.css';
 import ItemComponent from './ItemComponent';
 import { nanoid } from 'nanoid';
 
-function Canvas({ data }) {
+function Canvas({ data, currentSelect, setCurrentSelect }) {
   return (
     <div className={styles.canvas}>
       <div className={styles.container}>
         {data.map((item) => (
-          <ItemComponent key={nanoid()} data={item} />
+          <ItemComponent
+            key={nanoid()}
+            data={item}
+            currentSelect={currentSelect}
+            setCurrentSelect={setCurrentSelect}
+          />
         ))}
       </div>
     </div>

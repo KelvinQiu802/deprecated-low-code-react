@@ -5,17 +5,20 @@ import Canvas from '../components/Editor/Canvas';
 import ComponentList from '../components/Editor/ComponentList';
 import PropertyList from '../components/Editor/PropertyList';
 import styles from '../styles/Editor.module.css';
+import { nanoid } from 'nanoid';
 
 function Editor() {
   const [data, setData] = React.useState([
     {
       tag: 'Paper',
+      id: nanoid(),
       props: {
         elevation: 2,
         square: false,
         style: { padding: '100px' },
         children: {
           tag: 'Button',
+          id: nanoid(),
           props: {
             text: 'Hello World',
             color: 'warning',
@@ -27,6 +30,7 @@ function Editor() {
     },
     {
       tag: 'Button',
+      id: nanoid(),
       props: {
         color: 'secondary',
         text: 'Lydia',
@@ -34,6 +38,7 @@ function Editor() {
       },
     },
   ]);
+  const [currentSelect, setCurrentSelect] = React.useState(null);
 
   return (
     <>
@@ -44,7 +49,11 @@ function Editor() {
         <ControlBar />
         <div className={styles.bottom}>
           <ComponentList />
-          <Canvas data={data} />
+          <Canvas
+            data={data}
+            currentSelect={currentSelect}
+            setCurrentSelect={setCurrentSelect}
+          />
           <PropertyList />
         </div>
       </div>

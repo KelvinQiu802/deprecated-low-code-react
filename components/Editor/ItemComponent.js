@@ -2,41 +2,33 @@ import React from 'react';
 import allComponents from '../../utils/allComponents';
 import styles from '../../styles/ItemComponent.module.css';
 
-function ItemComponent({ data }) {
-  const [hover, setHover] = React.useState(false);
+function ItemComponent({ data, currentSelect, setCurrentSelect }) {
+  const isSelect = data.id == currentSelect;
 
   const Item = allComponents[data.tag];
-  const cl = `${styles.wrapper} ${hover ? styles.hover : null}`;
+  const cl = `${styles.wrapper} ${isSelect ? styles.hover : null}`;
 
-  const handleMouseEnter = (e) => {
+  const handleClick = (e) => {
     e.stopPropagation();
-    setHover(true);
-  };
-  const handleMouseLeave = (e) => {
-    e.stopPropagation();
-    setHover(false);
+    setCurrentSelect(data.id);
   };
 
   if (typeof data.props.children == 'object') {
     return (
-      <div
-        className={cl}
-        onMouseEnter={(e) => handleMouseEnter(e)}
-        onMouseLeave={(e) => handleMouseLeave(e)}
-      >
+      <div className={cl} onClick={(e) => handleClick(e)}>
         <Item {...data.props}>
-          <ItemComponent data={data.props.children} />
+          <ItemComponent
+            data={data.props.children}
+            currentSelect={currentSelect}
+            setCurrentSelect={setCurrentSelect}
+          />
         </Item>
       </div>
     );
   }
 
   return (
-    <div
-      className={cl}
-      onMouseEnter={(e) => handleMouseEnter(e)}
-      onMouseLeave={(e) => handleMouseLeave(e)}
-    >
+    <div className={cl} onClick={(e) => handleClick(e)}>
       <Item {...data.props} />
     </div>
   );
